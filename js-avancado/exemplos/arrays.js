@@ -50,6 +50,6 @@ const numbers = [1,34,35]
 
 const soma = numbers.reduce((valorAnterior, valorAtual)=> {
     return valorAnterior + valorAtual
-})
+},5)
 
 console.log(soma) //75

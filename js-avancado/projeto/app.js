@@ -1,23 +1,29 @@
-//pegar o input 
-//Se for Sim, mostra as categorias disponiveis, pergunta qual categoria ela escolhe
-//Se não, mostra todos os livros em ordem crescente pela quantidade de páginas
-
 const livros = require('./database')
+
+
+//1º pegar um input da pessoa usuaria se ela quer escolher um livro por categoria
+
 const readline = require('readline-sync')
 
-const entradaInicial = readline.question('Deseja buscar um livro?S/N')
+const entradaIncial = readline.question('Deseja buscar um Livro? S/N ')
 
-if (entradaInicial.toLocaleUpperCase() === 'S') {
-  console.log('Essas são as categorias disponiveis:')
-  console.log('Produtividade', '/História brasileira','/Américas','/Estilo de vida','/Tecnologia')
+// se for sim , mostramos as categorias disponveis  e perguntamso qual categoria ela escolhe
+// se escolher não, mostramlos todos livros em ordem crescentes pela quantidade de paginas
 
-  const entradaCategoria = readline.question('Qual categoria você escolhe:')
+if(entradaIncial.toLocaleUpperCase() === 'S'){
+    console.log('Essas são as categorias Disponiveis:')
+    console.log('Produtividade e estilo de Vida','/Religioso','/Auto Biografia','/Roamance','/Cientifico','/Comédia','/Beleza e Estética')
 
-  const retorno = livros.filter(livro => livro.categoria === entradaCategoria)
+    const entradaCategoria = readline.question('Qual categoria você escolhe:')
 
-  console.table(retorno)
-} else {
-  const livrosOrdenados = livros.sort((a,b)=> a.paginas - b.paginas)
-  console.log('Essas são todos os livros disponiveis:')
-  console.table(livrosOrdenados)
-}
+    const retorno = livros.filter(livro => livro.categoria === entradaCategoria)
+
+    console.table(retorno)
+    console.log ('Obrigado pela Escolha! Boa Leitura!')   
+     
+}   else {
+    const livrosOrdenados = livros.sort((a,b)=> a.paginas - b.paginas)
+    console.log('Essas são todos os Livros disponiveis:')
+    console.table(livrosOrdenados)
+    }   
+
